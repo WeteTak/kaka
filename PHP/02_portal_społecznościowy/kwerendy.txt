@@ -1,0 +1,13 @@
+SELECT haslo 
+FROM uzytkownicy
+WHERE login='Justyna';
+
+SELECT count(*) as ilosc
+FROM dane;
+
+SELECT login, rok_urodz, przyjaciol, hobby, zdjecie
+FROM uzytkownicy INNER JOIN dane ON uzytkownicy.id=dane.id
+WHERE login='Justyna';
+
+ALTER TABLE dane
+ADD stanowisko VARCHAR(50);

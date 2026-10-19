@@ -1,0 +1,43 @@
+header{
+    display: flex;
+}
+main{
+    display: flex;
+}
+*{
+    font-family: Tahoma;
+}
+.glewy, .gprawy{
+    background-color: #003d33;
+    text-align: center;
+    height: 50px;
+    color: white;
+}
+.glewy{
+    width: 70%;
+}
+.gprawy{
+    width: 30%;
+}
+.dlewy{
+    background-color: #26a69a;
+    height: 550px;
+    width: 30%;
+}
+.dprawy{
+    background-color: #26a69a;
+    height: 550px;
+    width: 70%;
+}
+footer{
+    background-color: #003d33;
+    color: white;
+    width: 100%;
+    display: flex;
+}
+.wizytowka{
+    width: 400px;
+    margin: 30px;
+    text-align: center;
+    border: 1px solid #003d33;
+}
