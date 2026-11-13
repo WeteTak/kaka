@@ -85,7 +85,6 @@ SELECT nazwa
 FROM dzialy INNER JOIN pracownicy ON dzialy.kod=pracownicy.dzial
 GROUP BY dzialy.nazwa
 HAVING COUNT(pracownicy.id) > 2;
-??????????????????????????
 -- 15. Wyświetl imiona i nazwiska pracowników, pracujących w działach (dziale) z najmniejszym budżetem.
 -- SELECT imie, nazwisko
 -- FROM dzialy INNER JOIN pracownicy ON dzialy.kod=pracownicy.dzial
@@ -107,7 +106,6 @@ VALUES ('847-21-9811','Mary','Moore', 10);
 UPDATE dzialy
 SET budzet = budzet * 0.90;
 -- 19. przenieś pracowników z działu Research  do działu IT  .
-????????????????????????????????
 UPDATE Pracownicy
 SET dzial = (
     SELECT kod
