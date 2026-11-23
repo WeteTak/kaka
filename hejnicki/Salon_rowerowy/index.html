@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon rowerowy</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <header>
+        <img src="1.jpg" alt="rower">
+        <img src="2.jpg" alt="rower">
+        <img src="3.jpg" alt="rower">
+        <img src="4.jpg" alt="rower">
+        <img src="5.jpg" alt="rower">
+    </header>
+
+    <main>
+        <h1>Dobierz rozmiar ramy roweru do wzrostu</h1>
+        <h2>Wybierz rodzaj roweru</h2>
+
+        <input type="radio" name="rower" id="gorski" checked>
+        <label for="gorski" class="klasa_etykiety" title="górski z kołami 29">
+            górski z kołami 29
+        </label><br>
+
+        <input type="radio" name="rower" id="szosa">
+        <label for="szosa" class="klasa_etykiety" title="szosa">
+            szosa
+        </label><br>
+
+        <input type="radio" name="rower" id="trekking">
+        <label for="trekking" class="klasa_etykiety" title="trekking">
+            trekking
+        </label><br>
+
+        <input type="range" id="suwak" min="100" max="220" value="150"
+        oninput="skrypt1()">
+
+        <input type="number" id="pole" value="150">
+
+        <button class="klasa_etykiety" onclick="skrypt2()">
+            Sprawdź
+        </button>
+
+        <p id="wynik"></p>
+
+        <td id="data"></td>
+    </main>
+
+    <aside>
+        <h1>Polecane firmy</h1>
+
+        <p class="logo1 prawa">cup</p>
+        <p class="logo2">glass</p>
+        <p class="logo1 srodek">spoon</p>
+        <p class="logo2 prawa">teaspoon</p>
+        <p class="logo1">fork</p>
+    </aside>
+
+    <footer>
+        <section>
+            <h4>Oferowane typy rowerów</h4>
+
+            <ul>
+                <li>górskie
+                    <ul>
+                        <li>koła 29 cali</li>
+                        <li>koła 26 cali</li>
+                    </ul>
+                </li>
+                <li>szosowe</li>
+                <li>miejskie</li>
+            </ul>
+        </section>
+
+        <section>
+            <h4>Informacje</h4>
+
+            <table>
+                <tr>
+                    <td>Autor:</td>
+                    <td>999999999999</td>
+                </tr>
+                <tr>
+                    <td>Aktualna data:</td>
+                    <td id="data"></td>
+                </tr>
+            </table>
+        </section>
+    </footer>
+
+    
+</body>
+</html>
+
+<script>
+
+function skrypt1() {
+
+    let wzrost = document.getElementById("suwak").value;
+
+    document.getElementById("pole").value = wzrost;
+
+}
+
+function skrypt2() {
+
+    let wzrost = Number(document.getElementById("pole").value);
+
+    let wspolczynnik = 0;
+
+    if(document.getElementById("gorski").checked) {
+        wspolczynnik = 0.26;
+    }
+
+    if(document.getElementById("szosa").checked) {
+        wspolczynnik = 0.30;
+    }
+
+    if(document.getElementById("trekking").checked) {
+        wspolczynnik = 0.28;
+    }
+
+    let rama = wzrost * wspolczynnik;
+
+    rama = Math.round(rama / 2.54);
+
+    document.getElementById("wynik").innerHTML =
+    "Zalecany rozmiar ramy to: " + rama + " cali";
+
+}
+
+function skrypt3() {
+
+    let data = new Date();
+
+    let dzien = String(data.getDate()).padStart(2, "0");
+    let miesiac = String(data.getMonth() + 1).padStart(2, "0");
+    let rok = data.getFullYear();
+
+    document.getElementById("data").innerHTML =
+    dzien + "." + miesiac + "." + rok;
+
+}
+
+window.onload = skrypt3;
+
+</script>

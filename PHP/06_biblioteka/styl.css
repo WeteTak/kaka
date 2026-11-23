@@ -1,0 +1,39 @@
+
+*{
+    font-family: "Cambria";
+}
+body{
+    background-color: mistyrose;
+}
+header, footer{
+    height: 200px;
+    text-align: center;
+    overflow: hidden;
+}
+section{
+    background-color: plum;
+    height: 400px;
+    margin: 5px;
+    box-shadow: 4px 4px 10px dimgray;
+    overflow: hidden;
+    width: 22%;
+}
+main{
+    display: flex;
+}
+/* W przypadku ekranów o szerokości do 800 px szerokość bloków sekcji 100%, powyżej 800 px szerokość bloków sekcji 22% */
+@media only screen and (max-width: 800px){
+    section{
+        width: 100%;
+    }
+    main{
+        flex-direction: column;
+    }
+}
+h2{
+    text-align: center;
+}
+button:hover{
+    background-color: #505050;
+    color: white;
+}
